@@ -70,7 +70,8 @@ public class Webscraper {
                     String pdfUrl = pdfLink.attr("abs:href");
                     String linkText = pdfLink.text().toLowerCase(Locale.ROOT);
                     if (pdfUrl.endsWith("pdf") && (linkText.contains("studienverlauf") || pdfUrl.contains("studienverlauf"))) {
-                        downloadPdf(pdfUrl);
+                        if (pdfUrl.equalsIgnoreCase("https://www.hochschule-bochum.de/fileadmin/public/Studium/Bildungsangebot/ordnungen/bachelor/CCE/PO_2019_Bachelor_Informatik_KIA_SVP.pdf"))
+                            downloadPdf(pdfUrl);
                     }
                 }
             }

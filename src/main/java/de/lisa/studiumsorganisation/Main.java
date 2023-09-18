@@ -2,7 +2,6 @@ package de.lisa.studiumsorganisation;
 
 import de.lisa.studiumsorganisation.controller.Database;
 import de.lisa.studiumsorganisation.view.MainUI;
-import de.lisa.studiumsorganisation.webscraper.PDFReader;
 import de.lisa.studiumsorganisation.webscraper.Webscraper;
 
 /**
@@ -51,9 +50,8 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-/*        Webscraper.scrapeWebPage("https://www.hochschule-bochum.de/studium-lehre/studienangebote/masterstudiengaenge/");
-        Webscraper.scrapeWebPage("https://www.hochschule-bochum.de/ba-studium/");*/
-
+        Webscraper.scrapeWebPage("https://www.hochschule-bochum.de/studium-lehre/studienangebote/masterstudiengaenge/");
+        Webscraper.scrapeWebPage("https://www.hochschule-bochum.de/ba-studium/");
         Webscraper.scrapeNames("https://www.hochschule-bochum.de/ba-studium/");
         Webscraper.scrapeNames("https://www.hochschule-bochum.de/studium-lehre/studienangebote/masterstudiengaenge/");
         //lade Datenbank
