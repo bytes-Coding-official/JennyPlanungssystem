@@ -326,7 +326,6 @@ public class Database {
         Utility.getInstance().getPraktikumstermine().clear();
         Utility.getInstance().getPrüfungsversuche().clear();
         Utility.getInstance().getFächer().clear();
-        Utility.getInstance().getStudiengänge().clear();
         try {
             loadAllPraktika();
             loadAllModule();
