@@ -7,7 +7,6 @@ import de.lisa.studiumsorganisation.model.Modul;
 import de.lisa.studiumsorganisation.model.Studiengang;
 import de.lisa.studiumsorganisation.util.Utility;
 import de.lisa.studiumsorganisation.webscraper.PDFReader;
-import de.lisa.studiumsorganisation.webscraper.Webscraper;
 import javafx.application.Application;
 import javafx.beans.property.BooleanProperty;
 import javafx.event.ActionEvent;
@@ -776,11 +775,7 @@ public class MainUI extends Application implements Initializable {
                     @Override
                     protected void updateItem(String t, boolean bln) {
                         super.updateItem(t, bln);
-                        if (t != null) {
-                            setText(t);
-                        } else {
-                            setText(null);
-                        }
+                        setText(t);
                     }
 
                 };
@@ -792,8 +787,6 @@ public class MainUI extends Application implements Initializable {
             if (newSelection != null && !newSelection.equals(oldSelection)) {
                 // This is where your updateTable method is called
                 Utility.currentStudiengang = Studiengang.fromString(newSelection);
-                System.out.println(Utility.currentStudiengang.toString());
-                System.out.println(Utility.currentStudiengang.getID());
                 updateTable();
             }
         });
