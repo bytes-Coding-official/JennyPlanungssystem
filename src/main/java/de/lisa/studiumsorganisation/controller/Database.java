@@ -334,28 +334,12 @@ public class Database {
             loadAllPrüfungsversuche();
             loadAllFächer();
             loadStudiengänge();
-            updateBestandenAttributes();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
     }
 
-    /**
-     * Updates the "bestanden" attribute of all "Fächer" (subjects), "Praktika" (internships),
-     * "Module" (modules), and "Prüfungen" (exams) based on the underlying elements.
-     * <p>
-     * This method iterates over all "Fächer" objects in the Utility class and sets
-     * their "bestanden" attribute to the result of the "isBestanden" method. This
-     * ensures that the "bestanden" attribute reflects the current status of each element.
-     * <p>
-     * Note: The "bestanden" attribute represents whether the corresponding element has been passed.
-     * If an element has been passed, its "bestanden" attribute is true. Otherwise, it is false.
-     */
-    private void updateBestandenAttributes() {
-        //update the bestanden attributes of all fächer, praktika, module and prüfungen based on the unterlaying element 
-        Utility.getInstance().getFächer().forEach(fach -> fach.setBestanden(fach.isBestanden()));
-    }
 
     public void deleteElement(Basemodel element) {
         if (element instanceof Fach fach) {

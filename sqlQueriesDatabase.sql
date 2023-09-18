@@ -30,7 +30,14 @@ CREATE TABLE IF NOT EXISTS `fach`
     `ModulID`       int(11)     NOT NULL,
     PRIMARY KEY (`FachID`),
     KEY `ModulID` (`ModulID`),
-    CONSTRAINT `ModulID` FOREIGN KEY (`ModulID`) REFERENCES `modul` (`ModulID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+    CONSTRAINT `ModulID` FOREIGN KEY
+(
+    `ModulID`
+) REFERENCES `modul`
+(
+    `ModulID`
+) ON DELETE NO CASCADE
+  ON UPDATE CASCADE
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
 
@@ -45,7 +52,14 @@ CREATE TABLE IF NOT EXISTS `modul`
     `StudID`         int(11)     NOT NULL,
     PRIMARY KEY (`ModulID`),
     KEY `StudID` (`StudID`),
-    CONSTRAINT `StudID` FOREIGN KEY (`StudID`) REFERENCES `studiengang` (`StudID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+    CONSTRAINT `StudID` FOREIGN KEY
+(
+    `StudID`
+) REFERENCES `studiengang`
+(
+    `StudID`
+) ON DELETE NO CASCADE
+  ON UPDATE CASCADE
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
 
@@ -74,7 +88,14 @@ CREATE TABLE IF NOT EXISTS `praktikumstermin`
     `PraktID`         int(11) NOT NULL,
     PRIMARY KEY (`PraktTerminID`),
     KEY `PraktID` (`PraktID`),
-    CONSTRAINT `PraktID` FOREIGN KEY (`PraktID`) REFERENCES `praktikum` (`PraktID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+    CONSTRAINT `PraktID` FOREIGN KEY
+(
+    `PraktID`
+) REFERENCES `praktikum`
+(
+    `PraktID`
+) ON DELETE NO CASCADE
+  ON UPDATE CASCADE
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
 
@@ -88,7 +109,14 @@ CREATE TABLE IF NOT EXISTS `pruefung`
     `FachID`    int(11) NOT NULL,
     PRIMARY KEY (`PruefID`),
     KEY `FachID` (`FachID`),
-    CONSTRAINT `FachID` FOREIGN KEY (`FachID`) REFERENCES `fach` (`FachID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+    CONSTRAINT `FachID` FOREIGN KEY
+(
+    `FachID`
+) REFERENCES `fach`
+(
+    `FachID`
+) ON DELETE NO CASCADE
+  ON UPDATE CASCADE
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
 
@@ -106,7 +134,14 @@ CREATE TABLE IF NOT EXISTS `pruefungsversuch`
     `PruefID`        int(11) NOT NULL,
     PRIMARY KEY (`PruefVersuchID`),
     KEY `PruefID` (`PruefID`),
-    CONSTRAINT `PruefID` FOREIGN KEY (`PruefID`) REFERENCES `pruefung` (`PruefID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+    CONSTRAINT `PruefID` FOREIGN KEY
+(
+    `PruefID`
+) REFERENCES `pruefung`
+(
+    `PruefID`
+) ON DELETE CASCADE
+  ON UPDATE CASCADE
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
 
