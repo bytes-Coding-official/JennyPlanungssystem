@@ -333,7 +333,6 @@ public class Database {
             loadAllPraktikumstermine();
             loadAllPrüfungsversuche();
             loadAllFächer();
-            loadStudiengänge();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
