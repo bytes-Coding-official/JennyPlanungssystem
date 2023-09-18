@@ -44,11 +44,12 @@ public class PDFReader {
             while (matcher.find()) {
                 String modulName = matcher.group(3).trim();
                 String ects = matcher.group(4).trim();
-                var modul = new Modul(Modul.getModulCounter(), modulName, false, 0);
+                //get Studiengang Informatik
+                var modul = new Modul(Modul.getModulCounter(), modulName, false, Webscraper.infoStudiengang.getID());
                 Utility.getInstance().getModule().add(modul);
                 moduleNames.add(modulName);
-                var Fach = new Fach(de.lisa.studiumsorganisation.model.Fach.getFachCounter(), modul.getName(), 0, false, Integer.parseInt(ects), modul.getID());
-                Utility.getInstance().getFächer().add(Fach);
+                var fach = new Fach(Fach.getFachCounter(), modul.getName(), 0, false, Integer.parseInt(ects), modul.getID());
+                Utility.getInstance().getFächer().add(fach);
 
             }
             document.close();

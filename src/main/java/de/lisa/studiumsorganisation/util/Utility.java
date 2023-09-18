@@ -198,6 +198,8 @@ public class Utility {
      * Holds a collection of Studiengang objects.
      */
     private final HashSet<Studiengang> studiengänge;
+    
+    public static Studiengang currentStudiengang = null;
 
     /**
      * Private constructor for the Utility class.

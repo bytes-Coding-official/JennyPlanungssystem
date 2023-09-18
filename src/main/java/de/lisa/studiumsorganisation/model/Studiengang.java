@@ -1,6 +1,7 @@
 package de.lisa.studiumsorganisation.model;
 
 
+import de.lisa.studiumsorganisation.util.Utility;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -67,5 +68,10 @@ public class Studiengang extends Basemodel {
     @Override
     public String toString() {
         return studienverlaufsplan;
+    }
+    
+    public static Studiengang fromString(String string) {
+        return Utility.getInstance().getStudiengänge().stream().filter(studiengang -> studiengang.getStudienverlaufsplan().equalsIgnoreCase(string)).findFirst().orElse(null);
+        
     }
 }

@@ -20,19 +20,22 @@ public class Webscraper {
     private static final Path DOWNLOAD_DIR = Paths.get("downloads");
     public static HashSet<String> studiengaenge = new HashSet<>();
 
+    public static Studiengang infoStudiengang = null;
+
     public static void scrapeNames(String url) {
         try {
             Document document = Jsoup.connect(url).get();
             Element div = document.getElementById("kesearch_results");
             if (div != null) {
                 Elements names = div.select(".course-finder-item__title.h3-style");
-
-
                 for (var name : names) {
                     System.out.println("Name: " + name.text());
-                    Utility.getInstance().getStudiengänge().add(new Studiengang(Studiengang.getStudiengangCounter(), name.text()));
+                    var studiengang = new Studiengang(Studiengang.getStudiengangCounter(), name.text());
+                    if (studiengang.getStudienverlaufsplan().equalsIgnoreCase("Informatik B.Sc."))
+                        infoStudiengang = studiengang;
+                    Utility.getInstance().getStudiengänge().add(studiengang);
                 }
-         
+
             } else {
                 System.out.println("Div with id kesearch_results not found");
             }
@@ -40,6 +43,7 @@ public class Webscraper {
             e.printStackTrace();
         }
     }
+
     public static void scrapeWebPage(String url) {
         try {
             Document document = Jsoup.connect(url).get();

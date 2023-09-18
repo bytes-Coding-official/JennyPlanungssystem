@@ -143,17 +143,16 @@ public class Database {
         //execute the query
         //            var studiengang = new Studiengang(result.getInt("StudID"), result.getString("Studienverlaufsplan"));
         var query = "INSERT INTO studiengang(StudID, Studienverlaufsplan)        VALUES (?,  ?)        ON DUPLICATE KEY UPDATE                   Studienverlaufsplan = VALUES(Studienverlaufsplan);";
-        Utility.getInstance().getStudiengänge().forEach(studiengang -> {
-            try {
-                var statement = connection.prepareStatement(query);
-                statement.setInt(1, studiengang.getID());
-                statement.setString(2, studiengang.getStudienverlaufsplan());
-                statement.executeUpdate();
-                System.out.println("Studiengang mit ID:" + studiengang.getID() + " wurde gespeichert");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        });
+        var studiengang = Utility.currentStudiengang;
+        try {
+            var statement = connection.prepareStatement(query);
+            statement.setInt(1, studiengang.getID());
+            statement.setString(2, studiengang.getStudienverlaufsplan());
+            statement.executeUpdate();
+            System.out.println("Studiengang mit ID:" + studiengang.getID() + " wurde gespeichert");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

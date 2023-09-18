@@ -53,12 +53,10 @@ public class Main {
     public static void main(String[] args) {
 /*        Webscraper.scrapeWebPage("https://www.hochschule-bochum.de/studium-lehre/studienangebote/masterstudiengaenge/");
         Webscraper.scrapeWebPage("https://www.hochschule-bochum.de/ba-studium/");*/
+
         Webscraper.scrapeNames("https://www.hochschule-bochum.de/ba-studium/");
         Webscraper.scrapeNames("https://www.hochschule-bochum.de/studium-lehre/studienangebote/masterstudiengaenge/");
-        PDFReader.analysePDFFiles();
         //lade Datenbank
-        if (!Main.isDummyLaunch())
-            Database.getInstance().saveAllData();
         if (dummyLaunch) {
             System.out.println("Dummy data loaded");
         }
