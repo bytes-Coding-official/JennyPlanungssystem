@@ -144,6 +144,7 @@ public class Database {
         //            var studiengang = new Studiengang(result.getInt("StudID"), result.getString("Studienverlaufsplan"));
         var query = "INSERT INTO studiengang(StudID, Studienverlaufsplan)        VALUES (?,  ?)        ON DUPLICATE KEY UPDATE                   Studienverlaufsplan = VALUES(Studienverlaufsplan);";
         var studiengang = Utility.currentStudiengang;
+        if (studiengang == null) return;
         try {
             var statement = connection.prepareStatement(query);
             statement.setInt(1, studiengang.getID());
