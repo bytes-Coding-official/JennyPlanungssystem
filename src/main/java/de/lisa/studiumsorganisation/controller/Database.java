@@ -113,7 +113,7 @@ public class Database {
             System.out.println("Verbindung erfolgreich hergestellt");
             return connection;
         } catch (SQLException e) {
-            System.out.println("Das funktioniert so nicht");
+            e.printStackTrace();
             System.exit(1);
         }
         return null;
