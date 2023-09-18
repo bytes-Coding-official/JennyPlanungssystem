@@ -29,7 +29,7 @@ public class Main {
      * ...
      * }
      */
-    private static final boolean dummyLaunch = false;
+    private static final boolean dummyLaunch = true;
 
     /**
      * Checks if the current launch is a dummy launch.
@@ -50,8 +50,8 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Webscraper.scrapeWebPage("https://www.hochschule-bochum.de/studium-lehre/studienangebote/masterstudiengaenge/");
-        // Webscraper.scrapeWebPage("https://www.hochschule-bochum.de/ba-studium/");
+        Webscraper.scrapeWebPage("https://www.hochschule-bochum.de/studium-lehre/studienangebote/masterstudiengaenge/");
+        Webscraper.scrapeWebPage("https://www.hochschule-bochum.de/ba-studium/");
         Webscraper.scrapeNames("https://www.hochschule-bochum.de/ba-studium/");
         Webscraper.scrapeNames("https://www.hochschule-bochum.de/studium-lehre/studienangebote/masterstudiengaenge/");
         //lade Datenbank
